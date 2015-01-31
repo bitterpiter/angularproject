@@ -1,20 +1,16 @@
-myApp.controller("shoutbox", function($scope, MenuItems) {
-    $scope.menuItems = MenuItems.getItems();
-    $scope.addItem = function(name, url) {
-        MenuItems.addItem(
+myApp.controller("shoutbox", function($scope, ShoutboxMessages) {
+    $scope.shoutboxMessages = ShoutboxMessages.getMessages();
+    $scope.addMessage = function(msg) {
+        ShoutboxMessages.addMessage(
             {
-                name: name,
-                url: url,
+                user: 1,
+                date: Date.now(),
+                msg: msg
             }
         );
-        delete $scope.newMenuItemName;
-        delete $scope.newMenuItemUrl;
+        delete $scope.newMessage;
     };
-    $scope.updateItem = function (id) {
-        MenuItems.updateItem(id);
-    };
-
     $scope.removeItem = function (id) {
-        MenuItems.removeItem(id);
+        ShoutboxMessages.removeMsg(id);
     };
 });
