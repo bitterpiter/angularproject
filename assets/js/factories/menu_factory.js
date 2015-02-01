@@ -8,4 +8,4 @@ myApp.factory("MenuPositions", function() {
         {href: "index.html", icon: "fa-edit", title: "Position #5"},  
     ];
     return menuPositions;
-});s
+});

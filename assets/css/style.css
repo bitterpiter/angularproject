@@ -315,6 +315,10 @@ p {
 .btn-chat-submit {
     float: right;
 }
+td.right {
+    text-align: right;
+    width: 10px;
+}
 /*============================*/
 @media(min-width:768px) {
     #page-wrapper {
