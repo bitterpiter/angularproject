@@ -1,16 +1,15 @@
-myApp.controller("shoutbox", function($scope, ShoutboxMessages) {
+myApp.controller("shoutboxCtrl", function($scope, ShoutboxMessages) {
+    $scope.newMsgUser = "John Locke";
     $scope.shoutboxMessages = ShoutboxMessages.getMessages();
-    $scope.addMessage = function(msg) {
-        ShoutboxMessages.addMessage(
-            {
-                user: 1,
-                date: Date.now(),
-                msg: msg
-            }
-        );
+    $scope.addMessage = function(msg, newMsgUser) {
+        ShoutboxMessages.addMessage({
+            user: newMsgUser,
+            date: Date.now(),
+            msg: msg
+        });
         delete $scope.newMessage;
     };
-    $scope.removeItem = function (id) {
-        ShoutboxMessages.removeMsg(id);
+    $scope.removeMessage = function (id) {
+        ShoutboxMessages.removeMessage(id);
     };
 });
