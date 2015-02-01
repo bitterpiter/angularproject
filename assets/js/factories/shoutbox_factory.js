@@ -1,7 +1,9 @@
 myApp.factory("ShoutboxMessages", function($firebase, FIREBASE_URI) {
-    var ref = new Firebase(FIREBASE_URI+"/shoutbox");
+    
+    var ref = new Firebase(FIREBASE_URI+"/shoutbox");    
     var sync = $firebase(ref);
-    var messages = sync.$asArray();        
+    
+    var messages = sync.$asArray();
     var getMessages = function() {
         return messages;
     }
