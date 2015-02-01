@@ -2,6 +2,45 @@
     <div class="col-md-6 col-sm-12 col-xs-12">
         <div class="panel panel-default">
             <div class="panel-heading">
+                Gatunki
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" ng-controller="genreCtrl">
+                        <thead>
+                            <tr>
+                                <td colspan="2">
+                                    <form ng-submit="addGenre(name)">
+                                        <div class="input-group">
+                                            <input type="text" ng-model="name" class="form-control input-sm" placeholder="Nowy gatunek..." />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-warning btn-sm">
+                                                    Dodaj
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Nazwa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="(id,genre) in genrePositions">
+                                <td>{{genre.name}}</td>
+                                <td class="right"><a class="fa fa-remove fa-fw remove-msg" ng-click="removeGenre(id)"></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
                 Instrumenty
             </div>
             <div class="panel-body">
@@ -14,7 +53,7 @@
                                         <div class="input-group">
                                             <input type="text" ng-model="name" class="form-control input-sm" placeholder="Nowy instrument..." />
                                             <span class="input-group-btn">
-                                                <button class="btn btn-warning btn-sm" id="btn-chat">
+                                                <button class="btn btn-warning btn-sm">
                                                     Dodaj
                                                 </button>
                                             </span>
@@ -31,43 +70,6 @@
                             <tr ng-repeat="(id,instrument) in instrumentPositions">
                                 <td>{{instrument.name}}</td>
                                 <td class="right"><a class="fa fa-remove fa-fw remove-msg" ng-click="removeInstrument(id)"></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-12 col-xs-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Gatunki
-            </div>
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Nazwa</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Saksofon</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Perkusja</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Gitara</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Kontrabas</td>
                             </tr>
                         </tbody>
                     </table>
