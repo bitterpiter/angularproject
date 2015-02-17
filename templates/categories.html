@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6 col-sm-12 col-xs-12">
+    <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Gatunki
@@ -9,7 +9,7 @@
                     <table class="table table-striped table-bordered table-hover" ng-controller="genreCtrl">
                         <thead>
                             <tr>
-                                <td colspan="2">
+                                <td>
                                     <form ng-submit="addGenre(name)">
                                         <div class="input-group">
                                             <input type="text" ng-model="name" class="form-control input-sm" placeholder="Nowy gatunek..." />
@@ -23,13 +23,10 @@
                                     
                                 </td>
                             </tr>
-                            <tr>
-                                <th colspan="2">Nazwa</th>
-                            </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="(id,genre) in genrePositions">
-                                <td>{{genre.name}}</td>
+                                <td><input type="text" class="form-control input-sm" ng-model="genre.name" ng-blur="updateGenre(id)" /></td>
                                 <td class="right"><a class="fa fa-remove fa-fw remove-msg" ng-click="removeGenre(id)"></a></td>
                             </tr>
                         </tbody>
@@ -38,7 +35,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-sm-12 col-xs-12">
+    <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Instrumenty
@@ -48,7 +45,7 @@
                     <table class="table table-striped table-bordered table-hover" ng-controller="instrumentCtrl">
                         <thead>
                             <tr>
-                                <td colspan="2">
+                                <td>
                                     <form ng-submit="addInstrument(name)">
                                         <div class="input-group">
                                             <input type="text" ng-model="name" class="form-control input-sm" placeholder="Nowy instrument..." />
@@ -62,14 +59,48 @@
                                     
                                 </td>
                             </tr>
-                            <tr>
-                                <th colspan="2">Nazwa</th>
-                            </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="(id,instrument) in instrumentPositions">
-                                <td>{{instrument.name}}</td>
+                                <td><input type="text" class="form-control input-sm" ng-model="instrument.name" ng-blur="updateInstrument(id)" /></td>
                                 <td class="right"><a class="fa fa-remove fa-fw remove-msg" ng-click="removeInstrument(id)"></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Artyści
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr ng-controller="genreCtrl">
+                                <td colspan="4"  ng-controller="artistCtrl">
+                                    <form ng-submit="addArtist(firstName, lastName, instrument, genre)" ng-controller="instrumentCtrl" >
+                                        <input type="text" ng-model="firstName" class="form-control input-sm" placeholder="Imię..." />
+                                        <input type="text" ng-model="lastName" class="form-control input-sm" placeholder="Nazwisko..." />
+                                        <select class="form-control input-sm" ng-model="instrument" ng-options="value.name as value.name for value in instrumentPositions"></select>
+                                        <select class="form-control input-sm" ng-model="genre" ng-options="value.name as value.name for value in genrePositions"></select>
+                                        <button class="btn btn-warning btn-sm">
+                                            Dodaj
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody ng-controller="artistCtrl">
+                            <tr ng-repeat="(id,artist) in artistPositions">
+                                <td><input type="text" class="form-control input-sm" ng-model="artist.firstName" ng-blur="updateArtist(id)" /></td>
+                                <td><input type="text" class="form-control input-sm" ng-model="artist.lastName" ng-blur="updateArtist(id)" /></td>
+                                <td class="right"><span>{{artist.instrument}}</span></td>
+                                <td class="right"><span>{{artist.genre}}</span></td>
+                                <td class="right"><a class="fa fa-remove fa-fw remove-msg" ng-click="removeArtist(id)"></a></td>
                             </tr>
                         </tbody>
                     </table>

@@ -3,9 +3,13 @@ var myApp = angular.module("adminPanel", ["ui.router", "firebase"]);
 myApp.constant('FIREBASE_URI', "https://website-techs.firebaseio.com/");
 myApp.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
+        .state('under', {
+            url: '/under',
+            templateUrl: 'templates/under.html',
+        })
         .state('dashboard', {
             url: '/dashboard',
-            templateUrl: 'templates/dashboard.html'
+            templateUrl: 'templates/dashboard.html',
         })
         .state('categories', {
             url: '/categories',

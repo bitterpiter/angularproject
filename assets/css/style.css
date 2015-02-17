@@ -318,6 +318,7 @@ p {
 td.right {
     text-align: right;
     width: 10px;
+    vertical-align: middle !important;
 }
 /*============================*/
 @media(min-width:768px) {

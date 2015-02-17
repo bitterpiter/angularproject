@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Projekt zaawansowane techniki internetowe</title>
+    <title>Zaawansowane techniki internetowe</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -27,27 +27,28 @@
 
 <body>
     <div id="main-container">
-        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-            <span class="panel-title">Dashboard</span>
-            <span class="last-login">
-                <span id="clock"></span>
-                <a href="#" class="little-btn">
-                    <i class="fa fa-power-off"></i>
-                </a>
-            </span>
-        </nav>
-        <nav class="navbar-default navbar-side no-radius" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu" ng-controller="menuCtrl">
-                    <li ng-repeat="position in menuPositions">
-                        <a ui-sref="{{position.href}}" href="#"><i class="fa {{position.icon}} fa-3x"></i>
-                        <span class="menu-title">{{position.title}}</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        
+        <div ng-controller="menuCtrl">
+            <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+                <span class="panel-title">Baza muzyczna - panel administracyjny</span>
+                <span class="last-login">
+                    <span id="clock"></span>
+                    <a href="#" class="little-btn">
+                        <i class="fa fa-power-off"></i>
+                    </a>
+                </span>
+            </nav>
+            <nav class="navbar-default navbar-side no-radius" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="main-menu">
+                        <li ng-repeat="position in menuPositions">
+                            <a ui-sref="{{position.href}}" href="#"><i class="fa {{position.icon}} fa-3x"></i>
+                            <span class="menu-title">{{position.title}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
         <div id="page-wrapper">
             <div id="page-inner">
                 <div ui-view></div>
@@ -74,6 +75,8 @@
     <script type="text/javascript" src="assets/js/factories/instrument_factory.js"></script>
     <script type="text/javascript" src="assets/js/controllers/genre.js"></script>
     <script type="text/javascript" src="assets/js/factories/genre_factory.js"></script>
+    <script type="text/javascript" src="assets/js/controllers/artist.js"></script>
+    <script type="text/javascript" src="assets/js/factories/artist_factory.js"></script>
 
 
 </body>
